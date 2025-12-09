@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2025-12-09T20:40:42"/>
+  <contentHeader name="Unnamed" modificationDateTime="2025-12-09T21:13:48">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="10" y="10"/>
+      </fbd>
+      <ld>
+        <scaling x="10" y="10"/>
+      </ld>
+      <sfc>
+        <scaling x="10" y="10"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="BasicMirror" pouType="program">
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[// Quick little test
+PROGRAM BasicMirror
+VAR
+        Input1 AT %IX0.0 : BOOL; // Digital Input (simulatable via debug)
+        Output1 AT %QX0.0 : BOOL; // Digital Output
+END_VAR
+
+Output1 := Input1; // Boolean mirror assignment, executed per scan cycle
+
+END_PROGRAM]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[Quick little test]]></xhtml:p>
+        </documentation>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="task0" priority="0" interval="T#20ms">
+            <pouInstance name="instance0" typeName="BasicMirror"/>
+          </task>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>
